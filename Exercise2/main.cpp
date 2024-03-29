@@ -20,7 +20,7 @@ void qr(const MatrixXd& A, const VectorXd& b, const VectorXd& expected)
 {
     ColPivHouseholderQR<MatrixXd> qr(A);
     VectorXd xq = qr.solve(b);
-    cout << "xq = \n" << xq << endl;
+    cout << "xq= \n" << xq << endl;
     double errq = (xq - expected).norm() / expected.norm();
     cout << "Relative error QR: " << errq << endl;
     cout << "\n" << endl;
@@ -33,7 +33,6 @@ int main()
 
     VectorXd expected(n);
     expected << -1.0e+0, -1.0e+00;
-
     MatrixXd A1(n,n);
     A1 << 5.547001962252291e-01, -3.770900990025203e-02, 8.320502943378437e-01,
         -9.992887623566787e-01;
@@ -45,7 +44,6 @@ int main()
     palu(A1, b1, expected);
     qr(A1, b1, expected);
 
-
     MatrixXd A2(n,n);
     A2 << 5.547001962252291e-01, -5.540607316466765e-01, 8.320502943378437e-01,
         -8.324762492991313e-01;
@@ -56,7 +54,6 @@ int main()
 
     palu(A2, b2, expected);
     qr(A2, b2, expected);
-
 
     MatrixXd A3(n,n);
     A3 << 5.547001962252291e-01, -5.547001955851905e-01, 8.320502943378437e-01,
